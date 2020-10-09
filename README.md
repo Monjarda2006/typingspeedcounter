@@ -1,0 +1,2 @@
+# typingspeedcounter
+WPM counter
