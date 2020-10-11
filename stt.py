@@ -1,5 +1,4 @@
 import time
-import datetime
 from random import randint
 
 words = {
@@ -83,10 +82,6 @@ corrects = 0
 fails = 0
 
 
-# Configs
-
-typing_time = 60
-
 
 def checkWord(word, typed_word):
 
@@ -117,41 +112,112 @@ print("-=-"*30)
 print(appcenter)
 print("-=-"*30)
 
+print("[A] 30 Seconds ")
+print("[B] 1 Minute ")
+print("[C] 3 Minute ")
 
 
+timer = str(input("")).strip().upper()
 start = str(input("Press (S) to Start ")).upper()
 
 
 if start in "Ss":
+    if timer in "A":
+        typing_time = 30
+
+        print("3")
+        time.sleep(1)
+
+        print("2")
+        time.sleep(1)
+
+        print("1")
+        time.sleep(1)
+        print("Start")
 
 
-    print("3")
-    time.sleep(1)
+        end_time = time.time() + typing_time
 
-    print("2")
-    time.sleep(1)
-
-    print("1")
-    time.sleep(1)
-    print("Start")
+        while time.time() < end_time:
 
 
-    end_time = time.time() + typing_time
-
-    while time.time() < end_time:
-
-
-        actual_word = genNewWord()
-        print(actual_word)
-        typed_word = input()
+            actual_word = genNewWord()
+            print(actual_word)
+            typed_word = input()
 
 
-        checkWord(actual_word, typed_word)
+            checkWord(actual_word, typed_word)
 
 
-    print("Done")
-    print(f"{corrects} WPM")
-    print(f"Failed {fails} words ")
+        print("Done")
+        print(f"{corrects} Words in 30 Seconds")
+        print(f"Failed {fails} words ")
+
+    elif timer in "B":
+
+        typing_time = 60
+
+        print("3")
+        time.sleep(1)
+
+        print("2")
+        time.sleep(1)
+
+        print("1")
+        time.sleep(1)
+        print("Start")
+
+
+        end_time = time.time() + typing_time
+
+        while time.time() < end_time:
+
+
+            actual_word = genNewWord()
+            print(actual_word)
+            typed_word = input()
+
+
+            checkWord(actual_word, typed_word)
+
+
+        print("Done")
+        print(f"{corrects} Words in 1 Minute")
+        print(f"Failed {fails} words ")
+
+    elif timer in "C":
+
+        typing_time = 180
+
+        print("3")
+        time.sleep(1)
+
+        print("2")
+        time.sleep(1)
+
+        print("1")
+        time.sleep(1)
+        print("Start")
+
+
+        end_time = time.time() + typing_time
+
+        while time.time() < end_time:
+
+
+            actual_word = genNewWord()
+            print(actual_word)
+            typed_word = input()
+
+
+            checkWord(actual_word, typed_word)
+
+
+        print("Done")
+        print(f"{corrects} Words in 30 Seconds")
+        print(f"Failed {fails} words ")
+
+
 
 else:
     print("Quiting...")
